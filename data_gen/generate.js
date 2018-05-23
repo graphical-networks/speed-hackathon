@@ -31,7 +31,8 @@ function generate_nodes(num_clusters, num_objects_per_cluster) {
                      DIAGRAM_SIZE - NODE_SIZE);
         y = Math.min(y_cluster + cluster_size * randn_bm(),
                      DIAGRAM_SIZE - NODE_SIZE);
-        if (x < 0 || y < 0)
+        if (x < 0 || y < 0 || x > DIAGRAM_SIZE - NODE_SIZE ||
+            y > DIAGRAM_SIZE - NODE_SIZE)
           continue;
 
         nodes.push({
