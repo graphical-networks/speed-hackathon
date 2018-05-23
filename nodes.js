@@ -9,10 +9,10 @@ function searchNodes(box) {
 }
 
 function provideNodes(box) {
-  var doCluster = false;
+  var doCluster = true;
   var nodes = searchNodes(box);
   if (doCluster) {
-    nodes = clusterNodes(nodex, box);
+    nodes = clusterNodes(nodes, box);
   }
   return nodes;
 }
@@ -42,7 +42,7 @@ function clusterNodes(nodes, box) {
 
   // Generate some excessive clusters.
   var nClusters = 10;
-  var clusterSize = max(box.maxX - box.minX, box.maxY - box.minY) / 10;
+  var clusterSize = Math.max(box.maxX - box.minX, box.maxY - box.minY) / 10;
 
   var seedIndices = []
   var seeds = [];
@@ -75,7 +75,7 @@ function clusterNodes(nodes, box) {
         }
         x /= inside.length;
         y /= inside.length;
-        setNodeToTo(x, y, 0, 0, s);
+        setNodeTo(x, y, 0, 0, s);
       }
     }
   }
@@ -88,7 +88,7 @@ function clusterNodes(nodes, box) {
       var overlapX = 
         (s0.minX <= s1.minX && s1.minX <= s0.maxX) ||
         (s1.minX <= s0.minX && s0.minX <= s1.maxX);
-      var overlayY =
+      var overlapY =
         (s0.minY <= s1.minY && s1.minY <= s0.maxY) ||
         (s1.minY <= s0.minY && s0.minY <= s1.maxY);
       if (overlapX && overlapY) {
