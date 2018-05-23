@@ -9,8 +9,8 @@ function searchNodes(box) {
 }
 
 function provideNodes(box) {
-  var doCluster = true;
-  var nodes = searchNodex(box);
+  var doCluster = false;
+  var nodes = searchNodes(box);
   if (doCluster) {
     nodes = clusterNodes(nodex, box);
   }
