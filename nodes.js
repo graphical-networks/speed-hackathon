@@ -32,7 +32,7 @@ function setNodeTo(x, y, w, h, node) {
     h = node.maxY - node.minY;
 
   node.minX = x - w / 2;
-  node.maxY = x + w / 2;
+  node.maxX = x + w / 2;
   node.minY = y - h / 2;
   node.maxY = y + h / 2;
 }
